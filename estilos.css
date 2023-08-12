@@ -5,13 +5,16 @@ body{
 div{
   border:groove;
 }
+.main{
+ display:flex;
+ flex-direction:column;
+}
 .containerheader{
   display:flex;
-  flex-wrap:wrap;
 }
 .containerCuerpo{
-  flex-wrap:wrap;
   display:flex;
+  flex-direction:row;
 }
 .footer{
   flex-wrap:wrap;
@@ -25,11 +28,34 @@ div{
 }
 .derechaLogoFooter{
   flex-wrap:wrap;
-  width:80%;
   display:flex;
   justify-content:space-around;
 }
 .vinetas{
   display:flex;
+  justify-content:space-between;
 
+}
+.inputGroup{
+  display:flex;
+}
+.Respuesta{
+  display:flex;
+}
+.ContainerMed{
+  display:flex;
+  flex-direction:column;
+  margin:auto;
+  width:40%;
+}
+.inputGroup{
+  display:flex;
+  justify-content:space-between;
+}
+.inputMasSimbols{
+  display:flex;
+}
+.Respuesta{
+  display:flex;
+  justify-content:space-between;
 }

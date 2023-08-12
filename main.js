@@ -1,16 +1,47 @@
 
 var userFullName = '';
 var userKey = '';
+var  contador = 0;
 function showFormVPN(){
-  let formhtml ='<h2>Valor Presente Neto (VPN). Se trata de la diferencia entre el valor de mercado de una inversión y su costo. Este indicador de rentabilidad mide cuánto valor es creado por realizar cierta inversión. Para evaluar un proyecto de inversión con base en el Valor Presente Neto se tienen que considerar aspectos como inversión inicial previa, tasa de descuento, número de períodos y flujos netos de efectivo</h2>'
-  formhtml += `<label>Inversion Inicial</label><br>
-              <input type ="text" id="inversion" name ="inversion" placeholder="1000"><br>
-              <label> Tasa de descuento </label><br>
-              <input type ="text" id="tasa de descuento" name ="tasa de descuento"><br>
-              <label>Numero de años</label>
-              <input type="text" id="anios name ="anios" placeholder="5">
-              <button onclick ="Calcular()">Calcular </button>
-              <p id="mensaje" ></p>`;
+  let formhtml ='<h2>Valor Presente Neto (VPN).</h2>-<br><p> Se trata de la diferencia entre el valor de mercado de una inversión y su costo. Este indicador de rentabilidad mide cuánto valor es creado por realizar cierta inversión. Para evaluar un proyecto de inversión con base en el Valor Presente Neto se tienen que considerar aspectos como inversión inicial previa, tasa de descuento, número de períodos y flujos netos de efectivo</p>'
+  formhtml += `<div class="ContainerMed">
+              <div class="inputGroup">
+              <label>Inversion Inicial</label>
+              <div class="inputMasSimbols">
+              <input type ="text" id="inversion" name ="inversion" placeholder="1000">
+              <div>S/</div>
+              </div>
+              </div>
+              <div class="inputGroup">
+              <label> Tasa de descuento </label>
+              <div class="inputMasSimbols">
+              <input type ="text" id="tasa de descuento" name ="tasa de descuento" placeholder="8">
+              <div>%</div>
+              </div></div>
+              <div>Flujos de Caja</div>
+              <div class = "flujosCaja" id = "flujosCaja">
+
+              <div class="inputGroup">
+              <label>Año ${contador}</label>
+              <div class="inputMasSimbols">
+              <input type="text" id="flujo" name ="anios" placeholder="(Ingresos - Gastos)">
+              <div>S/ </div>
+              </div>
+              </div>
+              </div>
+
+              <button onclick ="agregarAnio()">Agregar año </button>
+              <div class ="Respuesta">
+              <label>Valor Actual Neto</label>
+              <div class="inputMasSimbols">
+              <input type="text" id="rpt name ="rpt" placeholder="Aqui va tu Respuesta" disabled>
+              <div>S/</div>
+              </div>
+              </div>
+              <button onclick ="CalcularVPN()">Calcular </button>
+              <button onclick ="GrabarVPN()">Grabar para comparar </button>
+              <p id="mensaje" ></p>
+    </div>`;
   document.getElementById('main').innerHTML = formhtml;
 
 }
@@ -34,6 +65,26 @@ function showprc(){
               <button onclick ="Calcular()">Calcular </button>
               <p id="mensaje" ></p>`;
   document.getElementById('main').innerHTML = formhtml;
+
+}
+function agregarAnio(){
+  contador++;
+  const nuevoDivContainer = document.createElement("div")
+  nuevoDivContainer.setAttribute("class","inputGroup")
+  const nuevoLabel = document.createElement("label")
+  nuevoLabel.textContent="Año "+contador;
+  const nuevoDivGroup = document.createElement("div")
+  nuevoDivGroup.setAttribute("class","inputMasSimbols")
+  const nuevoInput = document.createElement("input")
+  nuevoInput.setAttribute("placeholder","Ingresos - Gastos")
+  const nuevoDivS = document.createElement("div")
+  nuevoDivS.textContent="S/"
+  nuevoDivContainer.appendChild(nuevoLabel)
+  nuevoDivGroup.appendChild(nuevoInput)
+  nuevoDivGroup.appendChild(nuevoDivS)
+  nuevoDivContainer.appendChild(nuevoDivGroup)
+  const aquien = document.getElementById('flujosCaja');
+  aquien.appendChild(nuevoDivContainer);
 
 }
 
