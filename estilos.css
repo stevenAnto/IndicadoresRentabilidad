@@ -62,4 +62,20 @@ div{
   display:flex;
   justify-content:space-between;
 }
-@media
+@media (max-width:720px){
+  .lefColmn{
+    display:none;
+    visibility:disabled;
+  }
+  .inputGroup{
+    display:flex;
+    flex-direction:column;
+  }
+  .inputMasSimbols input{
+    max-width:80%;
+  }
+  .Respuesta{
+    display:flex;
+    flex-direction:column;
+  }
+}
