@@ -15,7 +15,7 @@ function showFormVPN(){
               <div class="inputGroup">
               <label> Tasa de descuento </label>
               <div class="inputMasSimbols">
-              <input type ="text" id="tasa de descuento" name ="tasa de descuento" placeholder="8">
+              <input type ="text" id="tasaDescuento" name ="tasa de descuento" placeholder="8">
               <div>%</div>
               </div></div>
               <div>Flujos de Caja</div>
@@ -34,7 +34,7 @@ function showFormVPN(){
               <div class ="Respuesta">
               <label>Valor Actual Neto</label>
               <div class="inputMasSimbols">
-              <input type="text" id="rpt name ="rpt" placeholder="Aqui va tu Respuesta" disabled>
+              <input type="text" id="rptName" placeholder="Aqui va tu Respuesta" disabled>
               <div>S/</div>
               </div>
               </div>
@@ -45,6 +45,26 @@ function showFormVPN(){
   document.getElementById('main').innerHTML = formhtml;
 
 }
+function CalcularVPN(){
+  let respuesta;
+  let inversionInicial = parseFloat(document.getElementById("inversion").value);
+  let tasaDescuento = parseFloat(document.getElementById("tasaDescuento").value);
+  let suma=0;
+  const objetoFlujos = document.getElementById("flujosCaja");
+
+  for(let i = 0;i<=contador; i++){
+    let tasa  =tasaDescuento/100;
+    let valor = parseFloat(objetoFlujos.children[i].children[1].children[0].value);
+    let valorActualizado = valor/(1+tasa)**(i+1);
+    suma +=valorActualizado;
+    console.log("Valor",i,valorActualizado);
+  }
+  console.log(suma);
+  respuesta = -inversionInicial + suma;
+  let tagRespuesta = document.getElementById("rptName")
+  console.log(tagRespuesta);
+  tagRespuesta.value = respuesta;
+  }
 function showTir(){
   let formhtml ='<h2>La TIR es la tasa de descuento que hace que el VPN sea igual a cero. En este caso, necesitamos encontrar la tasa de descuento que hace que la suma de los flujos netos de efectivo descontados sea igual a la inversión inicial. TIR es el rendimiento requerido para que el VPN sea igual a cero.<h2>'
   formhtml += `<label>Inversion Inicial</label><br>

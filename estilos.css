@@ -17,9 +17,11 @@ div{
   flex-direction:row;
 }
 .footer{
-  flex-wrap:wrap;
   display:flex;
   flex-direction:row;
+}
+.logo{
+  width:10%;
 }
 .derechaLogoHeader{
   width:90%;
@@ -30,6 +32,7 @@ div{
   flex-wrap:wrap;
   display:flex;
   justify-content:space-around;
+  width:90%;
 }
 .vinetas{
   display:flex;
@@ -59,3 +62,4 @@ div{
   display:flex;
   justify-content:space-between;
 }
+@media
