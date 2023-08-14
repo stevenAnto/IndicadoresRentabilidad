@@ -48,8 +48,19 @@ div{
 .ContainerMed{
   display:flex;
   flex-direction:column;
-  margin:auto;
   width:40%;
+}
+.ContainerMedGeneral{
+  display:flex;
+
+}
+.uno,.dos,.tres,.cuatro,.cinco,.seis{
+  /*transform:rotate(-90deg);*/
+}
+
+table{
+  border-collapse:collapse;
+  overflow-x:auto;
 }
 .inputGroup{
   display:flex;
@@ -58,9 +69,24 @@ div{
 .inputMasSimbols{
   display:flex;
 }
+.inputMasSimbols>i{
+  align-self:center;
+}
 .Respuesta{
   display:flex;
   justify-content:space-between;
+}
+.tercercaFila{
+
+}
+table, th, td {
+  border: 1px solid;
+}
+table{
+}
+.containerTabla{
+  max-width:40%;
+  overflow-x:auto;
 }
 @media (max-width:720px){
   .lefColmn{
