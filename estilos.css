@@ -85,8 +85,13 @@ table, th, td {
 table{
 }
 .containerTabla{
-  max-width:40%;
+  resize:horizontal;
   overflow-x:auto;
+}
+.containerTabla::after{
+  cursor:pointer;
+}
+.containerTabla:hover{
 }
 @media (max-width:720px){
   .lefColmn{

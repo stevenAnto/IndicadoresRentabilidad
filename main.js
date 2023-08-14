@@ -3,10 +3,11 @@ var userFullName = '';
 var userKey = '';
 var  contador = 1;
 var contadorProyectos=0;
+var mostradoVPN=false;
 function showFormVPN(){
   let formhtml ='<h2>Valor Presente Neto (VPN).</h2>-<br><p> Se trata de la diferencia entre el valor de mercado de una inversión y su costo. Este indicador de rentabilidad mide cuánto valor es creado por realizar cierta inversión. Para evaluar un proyecto de inversión con base en el Valor Presente Neto se tienen que considerar aspectos como inversión inicial previa, tasa de descuento, número de períodos y flujos netos de efectivo</p>'
   formhtml += `<div class= "ContainerMedGeneral" id="ContainerMedGeneral">
-              <div class="containerTabla">
+              <div class="containerTabla" id="containerTabla">
               <p>Inversion Inicial : -1000</p>
               <p>Tasa de descuento : 2% </p>
               <table>
@@ -90,8 +91,14 @@ function showFormVPN(){
     <div id="respuestasGrabadas"></div>
     </div>`;
   document.getElementById('main').innerHTML = formhtml;
-
+  const newScript = document.createElement('script');
+  newScript.src='./other.js';
+  document.body.appendChild(newScript);
+  const contenedorRedimensionable = document.getElementById("containerTabla");
+  console.log(contenedorRedimensionable)
+  hacerRedimensionable();
 }
+
 function GrabarVPN(){
   contadorProyectos++;
   let contenedor = document.getElementById("respuestasGrabadas");
